@@ -78,7 +78,14 @@ export const DATA = {
   //   },
   //   ... (work experience entries commented out)
   // ],
-  work: [],
+  work: [] as Array<{
+    company: string;
+    title: string;
+    logoUrl?: string;
+    start: string;
+    end?: string;
+    description: string;
+  }>,
   education: [
     {
       school: "Eastern Illinois University",
