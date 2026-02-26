@@ -38,7 +38,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
     email: "aly@example.com",
@@ -99,26 +99,24 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "RabbitHole",
+      title: "RabbitHole Chrome Extension",
       href: "https://getrabbithole.io",
       dates: "Jan 2024 - Feb 2024",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "A Chrome extension that integrates Wikipedia content and visualizes your exploration journey across webpages.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "GoJS",
+        "Chrome Extension API",
+        "Wikipedia API",
       ],
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
+          href: "https://getrabbithole.io",
           icon: <Icons.globe className="size-3" />,
         },
       ],
@@ -132,64 +130,83 @@ export const DATA = {
       dates: "June 2023 - Present",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
+        "PrepGuide is an online platform I co-founded with my brother to provide free resources for SAT preparation.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
+        "Webflow", 
+        "CMS"
       ],
       links: [
         {
           type: "Website",
-          href: "https://magicui.design",
+          href: "https://prepguide.org",
           icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
-          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
       video: "/PrepGuideDemov2.mov",
     },
     {
+      title: "AvidBeam Component Redesign",
+      href: "#",
+      dates: "2024 - Present",
+      active: true,
+      description:
+        "Led the comprehensive redesign of key components across AvidBeam's AI video analytics platform. Focused on improving user experience and visual consistency throughout the web application.",
+      technologies: [
+        "Figma",
+        "UI/UX Design",
+        "Component Systems",
+        "Prototyping",
+        "User Interface",
+        "Design Systems",
+      ],
+      links: [],
+      image: "/avidbeam-cover.png",
+      video: "",
+    },
+
+    {
       title: "Termify",
-      href: "https://llm.report",
+      href: "https://github.com/alyab0uzaid/termify",
       dates: "April 2023 - September 2023",
       active: true,
       description:
-        "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "Termify provides a unique tactile experience for Spotify users, where they can retrieve top tracks, save playlists, and log out from the terminal interface.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Node.js", 
+        "Express", 
+        "Spotify API", 
+        "Pug"
       ],
       links: [
         {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
           type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
+          href: "https://github.com/alyab0uzaid/termify",
           icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
       video: "/termifydemov6.mp4",
+    },
+    {
+      title: "TrackMySci - Literature Tracking Platform",
+      href: "#",
+      dates: "2024 - 2025",
+      active: true,
+      description:
+        "Designed and developed the frontend for a literature tracking platform, similar to StoryGraph but focused on scientific papers and research. Led the complete design process from user research to final implementation.",
+      technologies: [
+        "SvelteKit",
+        "JavaScript",
+        "CSS",
+        "Figma",
+        "UI/UX Design",
+        "Frontend Development",
+        "User Research",
+      ],
+      links: [],
+      image: "/trackmysci-cover.png",
+      video: "",
     },
   ],
   /* hackathons: [
