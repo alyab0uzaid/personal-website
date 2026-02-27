@@ -109,7 +109,7 @@ export const DATA = {
       title: "RabbitHole Chrome Extension",
       href: "https://getrabbithole.io",
       caseStudySlug: "rabbithole-case-study",
-      dates: "Jan 2024 - Feb 2024",
+      dates: "Mar 2024",
       active: true,
       description:
         "A Chrome extension that integrates Wikipedia content and visualizes your exploration journey across webpages.",
@@ -136,17 +136,12 @@ export const DATA = {
       title: "The Country Game",
       href: "https://thecountrygame.com",
       caseStudySlug: "#",
-      dates: "Jan 2024 - Feb 2024",
+      dates: "Feb 2025",
       active: true,
       description:
-        "A Chrome extension that integrates Wikipedia content and visualizes your exploration journey across webpages.",
+        "A geography word game where players name a country for each letter of the alphabet, with optional timers. Supports solo, local multiplayer, and real-time online multiplayer with room codes.",
       technologies: [
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "GoJS",
-        "Chrome Extension API",
-        "Wikipedia API",
+        "React", "TypeScript", "Vite", "Tailwind CSS", "Supabase", "PartyKit", "Zod", 
       ],
       links: [
         {
@@ -183,7 +178,7 @@ export const DATA = {
     {
       title: "AvidBeam Component Redesign",
       href: "#",
-      dates: "2024 - Present",
+      dates: "Jul 2025 - Sep 2025",
       active: true,
       description:
         "Led the comprehensive redesign of key components across AvidBeam's AI video analytics platform. Focused on improving user experience and visual consistency throughout the web application.",
@@ -203,7 +198,7 @@ export const DATA = {
     {
       title: "Termify",
       href: "https://github.com/alyab0uzaid/termify",
-      dates: "April 2023 - September 2023",
+      dates: "September 2023",
       active: true,
       description:
         "Termify provides a unique tactile experience for Spotify users, where they can retrieve top tracks, save playlists, and log out from the terminal interface.",
@@ -226,7 +221,7 @@ export const DATA = {
     {
       title: "TrackMySci - Literature Tracking Platform",
       href: "#",
-      dates: "2024 - 2025",
+      dates: "Aug 2025 - May 2025",
       active: true,
       description:
         "Designed and developed the frontend for a literature tracking platform, similar to StoryGraph but focused on scientific papers and research. Led the complete design process from user research to final implementation.",
