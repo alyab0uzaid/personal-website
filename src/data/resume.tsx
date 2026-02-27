@@ -108,6 +108,7 @@ export const DATA = {
     {
       title: "RabbitHole Chrome Extension",
       href: "https://getrabbithole.io",
+      caseStudySlug: "rabbithole-case-study",
       dates: "Jan 2024 - Feb 2024",
       active: true,
       description:
@@ -130,6 +131,33 @@ export const DATA = {
       image: "",
       video:
         "/rabbitholedemo.mp4",
+    },
+    {
+      title: "The Country Game",
+      href: "https://thecountrygame.com",
+      caseStudySlug: "#",
+      dates: "Jan 2024 - Feb 2024",
+      active: true,
+      description:
+        "A Chrome extension that integrates Wikipedia content and visualizes your exploration journey across webpages.",
+      technologies: [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "GoJS",
+        "Chrome Extension API",
+        "Wikipedia API",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://thecountrygame.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video:
+        "/countrygamedemo3.mp4",
     },
     {
       title: "PrepGuide",

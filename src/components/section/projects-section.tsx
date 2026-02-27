@@ -40,6 +40,7 @@ export default function ProjectsSection() {
                         >
                             <ProjectCard
                                 href={project.href}
+                                caseStudySlug={"caseStudySlug" in project ? project.caseStudySlug : undefined}
                                 key={project.title}
                                 title={project.title}
                                 description={project.description}
