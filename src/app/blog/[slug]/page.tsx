@@ -8,13 +8,20 @@ import { mdxComponents } from "@/mdx-components";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-function getSortedPosts() {
-  return [...allPosts].sort((a, b) => {
-    if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
-      return -1;
-    }
-    return 1;
-  });
+function getCaseStudyPosts() {
+  const caseStudySlugs = new Set<string>(
+    DATA.projects
+      .filter((p): p is typeof p & { caseStudySlug: string } =>
+        "caseStudySlug" in p && typeof (p as { caseStudySlug?: string }).caseStudySlug === "string"
+      )
+      .map((p) => p.caseStudySlug)
+  );
+  return [...allPosts]
+    .filter((p) => caseStudySlugs.has(p._meta.path.replace(/\.mdx$/, "")))
+    .sort((a, b) => {
+      if (new Date(a.publishedAt) > new Date(b.publishedAt)) return -1;
+      return 1;
+    });
 }
 
 export async function generateStaticParams() {
@@ -80,15 +87,24 @@ export default async function Blog({
   }>;
 }) {
   const { slug } = await params;
-  const sortedPosts = getSortedPosts();
-  const currentIndex = sortedPosts.findIndex(
-    (p) => p._meta.path.replace(/\.mdx$/, "") === slug
+  const allSorted = [...allPosts].sort((a, b) =>
+    new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
   );
-  const post = sortedPosts[currentIndex];
+  const post = allSorted.find((p) => p._meta.path.replace(/\.mdx$/, "") === slug);
 
   if (!post) {
     notFound();
   }
+
+  const caseStudyPosts = getCaseStudyPosts();
+  const caseStudyIndex = caseStudyPosts.findIndex(
+    (p) => p._meta.path.replace(/\.mdx$/, "") === slug
+  );
+  const previousPost = caseStudyIndex > 0 ? caseStudyPosts[caseStudyIndex - 1] : null;
+  const nextPost =
+    caseStudyIndex >= 0 && caseStudyIndex < caseStudyPosts.length - 1
+      ? caseStudyPosts[caseStudyIndex + 1]
+      : null;
 
   const project = DATA.projects.find(
     (p) => "caseStudySlug" in p && p.caseStudySlug === slug
@@ -97,11 +113,8 @@ export default async function Blog({
     ? project.video || project.image
     : post.image;
 
-  const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
-
-  const getSlug = (post: (typeof sortedPosts)[0]) =>
-    post._meta.path.replace(/\.mdx$/, "");
+  const getSlug = (p: (typeof caseStudyPosts)[0]) =>
+    p._meta.path.replace(/\.mdx$/, "");
 
   const jsonLdContent = JSON.stringify({
     "@context": "https://schema.org",
@@ -187,6 +200,7 @@ export default async function Blog({
         <MDXContent code={post.mdx} components={mdxComponents} />
       </article>
 
+      {caseStudyIndex >= 0 && (
       <nav className="mt-12 pt-8 max-w-2xl">
         <div className="flex flex-col sm:flex-row justify-between gap-4">
           {previousPost ? (
@@ -224,6 +238,7 @@ export default async function Blog({
           )}
         </div>
       </nav>
+      )}
     </section>
   );
 }

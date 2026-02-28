@@ -136,7 +136,7 @@ export const DATA = {
     {
       title: "The Country Game",
       href: "https://thecountrygame.com",
-      caseStudySlug: "#",
+      caseStudySlug: "country-game-case-study",
       dates: "Feb 2025",
       active: true,
       description:
@@ -158,6 +158,7 @@ export const DATA = {
     {
       title: "PrepGuide",
       href: "https://prepguide.org",
+      caseStudySlug: "prepguide-case-study",
       dates: "June 2023 - Present",
       active: true,
       description:
@@ -179,6 +180,7 @@ export const DATA = {
     {
       title: "AvidBeam Component Redesign",
       href: "#",
+      caseStudySlug: "avidbeam-case-study",
       dates: "Jul 2025 - Sep 2025",
       active: true,
       description:
@@ -199,6 +201,7 @@ export const DATA = {
     {
       title: "Termify",
       href: "https://github.com/alyab0uzaid/termify",
+      caseStudySlug: "termify-case-study",
       dates: "September 2023",
       active: true,
       description:
@@ -222,6 +225,7 @@ export const DATA = {
     {
       title: "TrackMySci - Literature Tracking Platform",
       href: "#",
+      caseStudySlug: "trackmysci-case-study",
       dates: "Aug 2025 - May 2025",
       active: true,
       description:

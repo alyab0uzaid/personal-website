@@ -3,11 +3,20 @@ import { DATA } from "@/data/resume";
 import { notFound } from "next/navigation";
 import { CaseStudyModal } from "@/components/case-study-modal";
 
-function getSortedPosts() {
-  return [...allPosts].sort((a, b) => {
-    if (new Date(a.publishedAt) > new Date(b.publishedAt)) return -1;
-    return 1;
-  });
+function getCaseStudyPosts() {
+  const caseStudySlugs = new Set<string>(
+    DATA.projects
+      .filter((p): p is typeof p & { caseStudySlug: string } =>
+        "caseStudySlug" in p && typeof (p as { caseStudySlug?: string }).caseStudySlug === "string"
+      )
+      .map((p) => p.caseStudySlug)
+  );
+  return [...allPosts]
+    .filter((p) => caseStudySlugs.has(p._meta.path.replace(/\.mdx$/, "")))
+    .sort((a, b) => {
+      if (new Date(a.publishedAt) > new Date(b.publishedAt)) return -1;
+      return 1;
+    });
 }
 
 export default async function CaseStudyModalPage({
@@ -16,11 +25,11 @@ export default async function CaseStudyModalPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const sortedPosts = getSortedPosts();
-  const currentIndex = sortedPosts.findIndex(
+  const caseStudyPosts = getCaseStudyPosts();
+  const currentIndex = caseStudyPosts.findIndex(
     (p) => p._meta.path.replace(/\.mdx$/, "") === slug
   );
-  const post = sortedPosts[currentIndex];
+  const post = caseStudyPosts[currentIndex];
 
   if (!post) {
     notFound();
@@ -35,11 +44,11 @@ export default async function CaseStudyModalPage({
   const logo =
     project && "logo" in project && project.logo ? project.logo : undefined;
 
-  const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+  const previousPost = currentIndex > 0 ? caseStudyPosts[currentIndex - 1] : null;
   const nextPost =
-    currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+    currentIndex < caseStudyPosts.length - 1 ? caseStudyPosts[currentIndex + 1] : null;
 
-  const getSlug = (p: (typeof sortedPosts)[0]) =>
+  const getSlug = (p: (typeof caseStudyPosts)[0]) =>
     p._meta.path.replace(/\.mdx$/, "");
 
   return (
