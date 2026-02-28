@@ -109,6 +109,7 @@ export const DATA = {
       title: "RabbitHole Chrome Extension",
       href: "https://getrabbithole.io",
       caseStudySlug: "rabbithole-case-study",
+      logo: "/rabbitholelogo.png",
       dates: "Mar 2024",
       active: true,
       description:

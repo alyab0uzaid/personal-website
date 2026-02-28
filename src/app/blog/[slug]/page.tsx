@@ -90,6 +90,13 @@ export default async function Blog({
     notFound();
   }
 
+  const project = DATA.projects.find(
+    (p) => "caseStudySlug" in p && p.caseStudySlug === slug
+  );
+  const heroMedia = project
+    ? project.video || project.image
+    : post.image;
+
   const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 
@@ -129,6 +136,14 @@ export default async function Blog({
         </Link>
       </div>
       <div className="flex flex-col gap-4">
+        {project && "logo" in project && project.logo && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={project.logo}
+            alt=""
+            className="w-16 h-16 object-contain self-start drop-shadow-md"
+          />
+        )}
         <h1 className="title font-semibold text-3xl md:text-4xl tracking-tighter leading-tight">
           {post.title}
         </h1>
@@ -147,6 +162,27 @@ export default async function Blog({
           }}
         />
       </div>
+      {heroMedia && (
+        <div className="mb-6 rounded-xl overflow-hidden border border-border w-full aspect-video max-h-[400px] bg-muted">
+          {heroMedia.match(/\.(mp4|webm|mov)(\?|$)/i) ? (
+            <video
+              src={heroMedia}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={heroMedia}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+      )}
       <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
         <MDXContent code={post.mdx} components={mdxComponents} />
       </article>
