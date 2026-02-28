@@ -6,6 +6,7 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import ProjectsSection from "@/components/section/projects-section";
+import { getCaseStudyDataMap } from "@/lib/case-studies";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 
@@ -132,7 +133,7 @@ export default function Page() {
       </section> */}
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
+          <ProjectsSection caseStudies={getCaseStudyDataMap()} />
         </BlurFade>
       </section>
     </main>

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
@@ -30,6 +29,7 @@ interface Props {
   title: string;
   href?: string;
   caseStudySlug?: string;
+  onCaseStudyClick?: (slug: string) => void;
   description: string;
   dates: string;
   tags: readonly string[];
@@ -48,6 +48,7 @@ export function ProjectCard({
   title,
   href,
   caseStudySlug,
+  onCaseStudyClick,
   description,
   dates,
   tags,
@@ -57,15 +58,13 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
-  const router = useRouter();
-  const mainHref = caseStudySlug ? `/blog/${caseStudySlug}` : (href || "#");
-  const isInternal = !!caseStudySlug;
+  const mainHref = href || "#";
+  const hasCaseStudy = !!caseStudySlug && !!onCaseStudyClick;
 
   const handleCardClick = (e: React.MouseEvent) => {
-    if (mainHref === "#") return;
-    if (isInternal) {
-      router.push(mainHref);
-    } else {
+    if (hasCaseStudy && caseStudySlug) {
+      onCaseStudyClick(caseStudySlug);
+    } else if (mainHref !== "#") {
       window.open(mainHref, "_blank", "noopener,noreferrer");
     }
   };
@@ -85,7 +84,7 @@ export function ProjectCard({
         "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         className
       )}
-      aria-label={isInternal ? `View ${title} case study` : `Open ${title}`}
+      aria-label={hasCaseStudy ? `View ${title} case study` : `Open ${title}`}
     >
       <div className="relative shrink-0">
         {video ? (
