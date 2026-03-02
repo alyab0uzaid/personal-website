@@ -8,6 +8,7 @@ export type CaseStudyData = {
   mdxCode: string;
   heroMedia?: string;
   logo?: string;
+  websiteUrl?: string;
   previousSlug: string | null;
   previousTitle: string | null;
   nextSlug: string | null;
@@ -47,6 +48,8 @@ export function getCaseStudyDataMap(): Record<string, CaseStudyData> {
       : post.image || undefined;
     const logo =
       project && "logo" in project && project.logo ? project.logo : undefined;
+    const websiteUrl =
+      project?.href && project.href !== "#" ? project.href : undefined;
     const prev = posts[i - 1];
     const next = posts[i + 1];
 
@@ -57,6 +60,7 @@ export function getCaseStudyDataMap(): Record<string, CaseStudyData> {
       mdxCode: post.mdx,
       heroMedia,
       logo,
+      websiteUrl,
       previousSlug: prev ? prev._meta.path.replace(/\.mdx$/, "") : null,
       previousTitle: prev?.title ?? null,
       nextSlug: next ? next._meta.path.replace(/\.mdx$/, "") : null,

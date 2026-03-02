@@ -6,7 +6,8 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { MDXContent } from "@content-collections/mdx/react";
 import { mdxComponents } from "@/mdx-components";
 import { formatDate } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -18,6 +19,7 @@ interface CaseStudyModalProps {
   mdxCode: string;
   heroMedia?: string;
   logo?: string;
+  websiteUrl?: string;
   previousSlug: string | null;
   previousTitle: string | null;
   nextSlug: string | null;
@@ -32,6 +34,7 @@ export function CaseStudyModal({
   mdxCode,
   heroMedia,
   logo,
+  websiteUrl,
   previousSlug,
   previousTitle,
   nextSlug,
@@ -126,6 +129,19 @@ export function CaseStudyModal({
                     {formatDate(publishedAt)}
                   </p>
                 </BlurFade>
+                {websiteUrl && (
+                  <BlurFade delay={BLUR_FADE_DELAY * 5}>
+                    <Link
+                      href={websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium border border-border rounded-lg px-3 py-2 hover:bg-accent/50 transition-colors w-fit"
+                    >
+                      <ExternalLink className="size-3.5" />
+                      Visit website
+                    </Link>
+                  </BlurFade>
+                )}
               </div>
               <div className="my-6 flex w-full items-center">
                 <div
@@ -139,7 +155,7 @@ export function CaseStudyModal({
                 />
               </div>
               {heroMedia && (
-                <BlurFade delay={BLUR_FADE_DELAY * 5}>
+                <BlurFade delay={BLUR_FADE_DELAY * 6}>
                   <div className="mb-6 rounded-xl overflow-hidden border border-border w-full aspect-video max-h-[400px] bg-muted">
                     {heroMedia.match(/\.(mp4|webm|mov)(\?|$)/i) ? (
                       <video
@@ -161,7 +177,7 @@ export function CaseStudyModal({
                   </div>
                 </BlurFade>
               )}
-              <BlurFade delay={BLUR_FADE_DELAY * 6}>
+              <BlurFade delay={BLUR_FADE_DELAY * 7}>
                 <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
                   <MDXContent code={mdxCode} components={mdxComponents} />
                 </article>
