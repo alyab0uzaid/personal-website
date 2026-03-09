@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   icons: {
     icon: [
-      { url: "/favicon/favicon.ico", sizes: "any" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon2/favicon.ico", sizes: "any" },
+      { url: "/favicon2/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: "/favicon/apple-touch-icon.png",
+    apple: "/favicon2/apple-touch-icon.png",
   },
-  manifest: "/favicon/site.webmanifest",
+  manifest: "/favicon2/site.webmanifest",
   title: {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
