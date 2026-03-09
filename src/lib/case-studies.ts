@@ -44,7 +44,7 @@ export function getCaseStudyDataMap(): Record<string, CaseStudyData> {
       (p) => "caseStudySlug" in p && p.caseStudySlug === slug
     );
     const heroMedia = project
-      ? (project.video || project.image || undefined)
+      ? (("video" in project && project.video) || ("image" in project && project.image) || undefined)
       : post.image || undefined;
     const logo =
       project && "logo" in project && project.logo ? project.logo : undefined;

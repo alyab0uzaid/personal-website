@@ -67,7 +67,7 @@ export default function ProjectsSection({ caseStudies }: Props) {
                 dates={project.dates}
                 tags={project.technologies}
                 image={project.image}
-                video={project.video}
+                video={"video" in project ? project.video : undefined}
                 links={project.links}
               />
             </BlurFade>

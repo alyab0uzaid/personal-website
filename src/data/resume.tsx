@@ -106,6 +106,32 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Salah",
+      href: "https://apps.apple.com/app/id6756989968",
+      caseStudySlug: "salah-case-study",
+      logo: "/salahapp.png",
+      dates: "Mar 2025",
+      active: true,
+      description:
+        "A prayer times and Qibla app with tracking, notifications, and tasbih. Clean, minimal design with location-based calculation methods.",
+      technologies: [
+        "React Native",
+        "Expo",
+        "JavaScript",
+        "Adhan",
+        "Expo Location",
+        "Expo Notifications",
+      ],
+      links: [
+        {
+          type: "App Store",
+          href: "https://apps.apple.com/app/id6756989968",
+          icon: <Icons.appStore className="size-3" />,
+        },
+      ],
+      image: "/salahbanner.png",
+    },
+    {
       title: "RabbitHole Chrome Extension",
       href: "https://getrabbithole.io",
       caseStudySlug: "rabbithole-case-study",

@@ -109,9 +109,8 @@ export default async function Blog({
   const project = DATA.projects.find(
     (p) => "caseStudySlug" in p && p.caseStudySlug === slug
   );
-  const heroMedia = project
-    ? project.video || project.image
-    : post.image;
+  const p = project as { video?: string; image?: string } | undefined;
+  const heroMedia = p ? p.video || p.image : post.image;
 
   const getSlug = (p: (typeof caseStudyPosts)[0]) =>
     p._meta.path.replace(/\.mdx$/, "");
