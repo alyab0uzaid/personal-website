@@ -24,7 +24,7 @@ export default function Page() {
                 <img
                   src="/ali.png"
                   alt=""
-                  className="absolute -right-2 -top-1 left-[85%] h-14 md:h-20 w-auto max-w-[70%] object-contain object-right opacity-60 dark:opacity-50 pointer-events-none"
+                  className="absolute -right-2 -top-1 left-[85.5%] h-12 md:h-16 w-auto max-w-[70%] object-contain object-right opacity-60 dark:opacity-50 pointer-events-none"
                   aria-hidden
                 />
                 <BlurFadeText
