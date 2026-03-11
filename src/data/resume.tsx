@@ -23,6 +23,7 @@ export const DATA = {
   summary:
     "I recently graduated with a degree in Computer Science and am now pursuing my Master’s in Technology to deepen my skills and expand what I’m capable of building. I’ve always been driven by curiosity and the desire to create, and I’m using this time to refine my craft and continue growing as a technologist. My long term goal is to build meaningful products and ventures that have a real impact.",
   avatarUrl: "/me.jpeg",
+  resumeUrl: "/Aly_Abou-Zaid_Resume.pdf",
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },

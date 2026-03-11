@@ -8,7 +8,8 @@ import Markdown from "react-markdown";
 import ProjectsSection from "@/components/section/projects-section";
 import { getCaseStudyDataMap } from "@/lib/case-studies";
 import WorkSection from "@/components/section/work-section";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -23,7 +24,7 @@ export default function Page() {
                 <img
                   src="/ali.png"
                   alt=""
-                  className="absolute -right-2 -top-1 -bottom-1 left-[85%] h-11 md:h-14 w-auto max-w-[60%] object-contain object-right opacity-45 dark:opacity-50 pointer-events-none"
+                  className="absolute -right-2 -top-1 left-[85%] h-14 md:h-20 w-auto max-w-[70%] object-contain object-right opacity-60 dark:opacity-50 pointer-events-none"
                   aria-hidden
                 />
                 <BlurFadeText
@@ -60,6 +61,16 @@ export default function Page() {
               </Markdown>
             </div>
           </BlurFade>
+          {DATA.resumeUrl && (
+            <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
+              <Button variant="outline" size="sm" asChild>
+                <Link href={DATA.resumeUrl} download target="_blank" rel="noopener noreferrer">
+                  <Download className="size-3.5 mr-2" />
+                  Download Resume
+                </Link>
+              </Button>
+            </BlurFade>
+          )}
         </div>
       </section>
       {DATA.work.length > 0 && (
